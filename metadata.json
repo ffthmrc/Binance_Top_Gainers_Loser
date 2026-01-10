@@ -1,0 +1,5 @@
+{
+  "name": "CryptoAlert: Binance Futures Pulse",
+  "description": "Real-time Binance Futures price monitor that detects >1% movements within a 1-minute window and sends automated Telegram alerts with AI-powered market insights.",
+  "requestFramePermissions": []
+}
