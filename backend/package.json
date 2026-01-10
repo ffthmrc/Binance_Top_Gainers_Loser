@@ -1,0 +1,29 @@
+{
+  "name": "binance-monitor-backend",
+  "version": "1.0.0",
+  "description": "24/7 Binance Crypto Monitor with Telegram Alerts",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "watch": "tsc -w"
+  },
+  "keywords": ["binance", "crypto", "monitoring", "telegram"],
+  "author": "ffthmrc",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.16.0",
+    "axios": "^1.6.5",
+    "dotenv": "^16.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "@types/ws": "^8.5.10",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
