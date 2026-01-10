@@ -171,25 +171,29 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const fetchBlacklist = async () => {
-      try {
-        const response = await fetch('/blacklist.txt');
-        if (response.ok) {
-          const text = await response.text();
-          const list = text
-            .split(/[\n,]+/)
-            .map(item => item.trim().toUpperCase())
-            .filter(item => item !== "");
-          setFileBlacklist(list);
-        }
-      } catch (e) {
-        console.error("External blacklist sync failed", e);
+  const fetchBlacklist = async () => {
+    try {
+      // GitHub Pages için doğru yol
+      const response = await fetch(`${import.meta.env.BASE_URL}blacklist.txt`);
+      if (response.ok) {
+        const text = await response.text();
+        const list = text
+          .split(/[\n,]+/)
+          .map(item => item.trim().toUpperCase())
+          .filter(item => item !== "");
+        setFileBlacklist(list);
+        console.log(`✅ Blacklist loaded: ${list.length} coins`);
+      } else {
+        console.warn("⚠️ blacklist.txt not found, continuing without external blacklist");
       }
-    };
-    fetchBlacklist();
-    const interval = setInterval(fetchBlacklist, 30000);
-    return () => clearInterval(interval);
-  }, []);
+    } catch (e) {
+      console.warn("⚠️ External blacklist sync failed:", e);
+    }
+  };
+  fetchBlacklist();
+  const interval = setInterval(fetchBlacklist, 30000);
+  return () => clearInterval(interval);
+}, []);
 
   useEffect(() => {
     localStorage.setItem('pump_command_center_v1', JSON.stringify(settings));
