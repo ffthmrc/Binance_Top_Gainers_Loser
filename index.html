@@ -6,28 +6,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AlphaHunter: Pro Trading Terminal</title>
 
+  <!-- Tailwind (dev CDN) -->
+
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- TradingView -->
+
   <script src="https://s3.tradingview.com/tv.js"></script>
+
+  <!-- Fonts -->
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    body{
+    body {
       font-family: 'Inter', sans-serif;
-      background:#0b0e11;
-      color:#eaecef;
-      margin:0;
+      background-color: #0b0e11;
+      color: #eaecef;
+      margin: 0;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1e2329;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #474d57;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #5e6673;
     }
   </style>
+
+  <!-- React + libraries -->
+
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@19",
+      "react/": "https://esm.sh/react@19/",
+      "react-dom/": "https://esm.sh/react-dom@19/",
+      "lucide-react": "https://esm.sh/lucide-react",
+      "@google/genai": "https://esm.sh/@google/genai"
+    }
+  }
+  </script>
 
 </head>
 
 <body>
 
-<div id="root"></div>
+  <div id="root"></div>
 
-<script type="module" src="/src/main.tsx"></script>
+  <!-- React App Entry -->
+
+  <script type="module" src="./index.tsx"></script>
 
 </body>
 </html>
